@@ -9,25 +9,15 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-        require('connection.php');
-        if(isset($_POST['login_button']))
-        {
-            $_SESSION['validate']= false;
-            $c_id =$_POST['c_id'];
-            $p=bookstore::connect()->prepare('SELECT *FROM customer WHERE c_id=:c');
-            $p->bindValue('c', $c_id);
-            $p->execute();
-            $d=$p->fetch(PDP::FETCH_ASSOC);
-            if($p->rowCount()>0)
-            {
-                $_SESSION['c_id']=$c_id;
-                $_SESSION['validate']=true;
-                header('location:home.php')
-            }
-        }
 
-    ?>
+    <ul>
+       
+        <li><a class="signup" href="signup.php">signup</a></li>
+        <li><a class ="home" href="home.php">home</a></li>
+        <li><a class="customer login" href="login.php">customer login</a></li>
+        <li><a class ="admin" href="admin.php">admin</a></li>
+
+    </ul>
     <div class="form">
         <div class = "title">
             <p>login</p>
@@ -36,10 +26,30 @@
     <div class="form">
         <form action="" method="post">
             <p>login in</p>
-            <input type="text" name="c_id" placeholder="c_id">
+            <input type="text" name="customer_id" placeholder="customer_id">
             <input type="submit" value="login" name = "login_button">
         </form>
     </div>
+
+    <?php
+
+	$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
+        require_once('connection.php');
+        if(isset($_POST['login_button']))
+        {
+            $_SESSION['validate']= false;
+            $customer_id =$_POST['customer_id'];
+
+	$query = mysqli_query($conn, "SELECT * FROM customers WHERE customer_id='{$customer_id}'");
+	if (mysqli_num_rows($query) == 1)
+	{
+		echo "hello $customer_id";
+    		$success = true;
+	}
+        }
+
+    ?>
+ 
     
 </body>
 </html>

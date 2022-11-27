@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,26 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-        require('connection.php');
-        if(isset($_POST['signUp_button']))
-        {
-            $FirstName =$_POST['FirstName'];
-            $LastName =$_POST['LastName'];
-            $c_id =$_POST['c_id'];
+    <ul>
+       
+        <li><a class="signup" href="signup.php">signup</a></li>
+        <li><a class ="home" href="home.php">home</a></li>
+        <li><a class="customer login" href="login.php">customer login</a></li>
+        <li><a class ="admin" href="admin.php">admin</a></li>
 
-            if(!empty($_POST['FirstName']) && !empty($_POST['LastName'])&& !empty($_POST['contact_id']))
-            {
-                $p=bookstore::conect()->prepare('INSERT INTO customers(c_id,fname,lastname,contact_id) VALUE(:c,:f,:l,:co)')
-                $p->bindVValue(':c',$c_id);
-                $p->bindValue(':f',$FirstName);
-                $p->bindValue(':l',$LastName);
-                $p->bindValue(':co',$contact_id);
-                $p->execute();
-            }          
-        }
-
-?>
+    </ul>
     <div class="form">
         <div class = "title">
             <p>signup</p>
@@ -37,12 +24,40 @@
     <div class="form">
         <form action="" method="post">
             <p>sign up</p>
-            <input type="text" name="FirstName" placeholder="FirstName">
-            <input type="text" name="LastName"placeholder="LastName">
-            <input type="text" name="c_id"placeholder="c_id">
+	        <input type="text" name="customer_id"placeholder="customer_id">
+            	<input type="text" name="fname" placeholder="FirstName">
+            	<input type="text" name="lanme"placeholder="LastName">
+            	<input type="text" name="contact_id"placeholder="contact_id">
+	    	<input type="text" name="email"placeholder="email">
+            	<input type="text" name="phone" placeholder="phone">
+		<input type="text" name="address" placeholder="address">
+
             <input type="submit" value="signup" name = "signup_button">
         </form>
     </div>
-    
+<?php
+	$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
+        require_once('connection.php');
+	if (isset($_POST['signup_button']))
+	{ 	
+		$fname = $_POST['fname'];
+         	$lanme = $_POST['lanme'];
+            	$customer_id = $_POST['customer_id'];
+	 	$contact_id = $_POST['contact_id'];
+         	$email = $_POST['email'];
+         	$address = $_POST['address'];
+	 	$phone = $_POST['phone'];
+
+	//$query = mysqli_query($conn, "SELECT * FROM customer WHERE fname='{$fname}'");
+
+	mysqli_query($conn, "INSERT INTO customers VALUES ('{$customer_id}', '{$fname}', '{$lanme}','{$contact_id}')");
+	mysqli_query($conn, "INSERT INTO customer_address VALUES ('{$address}', '{$contact_id}', '{$customer_id}')"); // something is wrong here i cant see it
+	mysqli_query($conn, "INSERT INTO customer_contact_details VALUES ('{$contact_id}', '{$customer_id}')");
+	mysqli_query($conn, "INSERT INTO customer_email VALUES ('{$email}','{$contact_id}', '{$customer_id}')");
+	mysqli_query($conn, "INSERT INTO customer_number VALUES ('{$phone}','{$contact_id}', '{$customer_id}')");
+
+	}
+	
+?>   
 </body>
 </html>

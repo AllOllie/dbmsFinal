@@ -1,6 +1,7 @@
 <?php
     class bookstore
     {  
+        
         function OpenCon() 
          { 
             $dbhost = "localhost"; 
@@ -14,6 +15,9 @@
         { 
             $conn -> close(); 
         } 
+
+
+     //   CONNECT TO"localhost" as 
 
 
        // public static function connect()
