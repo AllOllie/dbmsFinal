@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,5 +48,39 @@ ul {
 
     </ul>
     
+	<?php
+		$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
+        	require_once('connection.php');
+
+		$sql = "SELECT title, price, reviews FROM books";
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+			echo "<table style='border: solid 1px black;'>";
+			  echo "<table><tr><th>sub</th><th>Add</th><th>Title</th><th>Price</th><th>Reviews</th>";
+  			// output data of each row
+  			while($row = $result->fetch_assoc()) {
+    				echo "<tr><td>-</td><td>+</td><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["reviews"]."</td></tr>";
+  			}
+  			echo "</table>";
+			} 
+			else {
+  			echo "0 results";
+			}
+			
+//good here
+		//$sql = "SELECT title, price, reviews FROM books";
+		//$result = $conn->query($sql);
+		//if ($result->num_rows > 0) {
+    // output data of each row
+			//echo "<br> title <br>
+    			//while($row = $result->fetch_assoc()) {
+        		//echo "<br> title: ". $row["title"]. " - price: ". $row["price"]. " reviews " . $row["reviews"] . "<br>";
+    			//}
+			//} else {
+    			//echo "0 results";
+			//}
+//to here
+		$conn->close();
+	?>
     </body>
     </html>

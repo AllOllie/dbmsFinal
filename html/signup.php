@@ -41,11 +41,11 @@
 	if (isset($_POST['signup_button']))
 	{ 	
 		$fname = $_POST['fname'];
-         	$lanme = $_POST['lanme'];
-            	$customer_id = $_POST['customer_id'];
+        $lanme = $_POST['lanme'];
+        $customer_id = $_POST['customer_id'];
 	 	$contact_id = $_POST['contact_id'];
-         	$email = $_POST['email'];
-         	$address = $_POST['address'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
 	 	$phone = $_POST['phone'];
 
 	//$query = mysqli_query($conn, "SELECT * FROM customer WHERE fname='{$fname}'");
