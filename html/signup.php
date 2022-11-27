@@ -25,12 +25,12 @@
         <form action="" method="post">
             <p>sign up</p>
 	        <input type="text" name="customer_id"placeholder="customer_id">
-            	<input type="text" name="fname" placeholder="FirstName">
-            	<input type="text" name="lanme"placeholder="LastName">
-            	<input type="text" name="contact_id"placeholder="contact_id">
+            <input type="text" name="fname" placeholder="FirstName">
+            <input type="text" name="lanme"placeholder="LastName">
+            <input type="text" name="contact_id"placeholder="contact_id">
 	    	<input type="text" name="email"placeholder="email">
-            	<input type="text" name="phone" placeholder="phone">
-		<input type="text" name="address" placeholder="address">
+            <input type="text" name="phone" placeholder="phone">
+		    <input type="text" name="address" placeholder="address">
 
             <input type="submit" value="signup" name = "signup_button">
         </form>
@@ -48,7 +48,6 @@
         $address = $_POST['address'];
 	 	$phone = $_POST['phone'];
 
-	//$query = mysqli_query($conn, "SELECT * FROM customer WHERE fname='{$fname}'");
 
 	mysqli_query($conn, "INSERT INTO customers VALUES ('{$customer_id}', '{$fname}', '{$lanme}','{$contact_id}')");
 	mysqli_query($conn, "INSERT INTO customer_address VALUES ('{$address}', '{$contact_id}', '{$customer_id}')"); // something is wrong here i cant see it

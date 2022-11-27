@@ -26,6 +26,7 @@
     <div class="form">
         <form action="" method="post">
             <p>login in</p>
+	    <input type="text" name="fname" placeholder="fname">	
             <input type="text" name="customer_id" placeholder="customer_id">
             <input type="submit" value="login" name = "login_button">
         </form>
@@ -38,13 +39,15 @@
         if(isset($_POST['login_button']))
         {
             $_SESSION['validate']= false;
+	    $fname =$_POST['fname'];
             $customer_id =$_POST['customer_id'];
 
-	$query = mysqli_query($conn, "SELECT * FROM customers WHERE customer_id='{$customer_id}'");
+	$query = mysqli_query($conn, "SELECT * FROM customers WHERE customer_id='{$customer_id}' && fname ='{$fname}'");
 	if (mysqli_num_rows($query) == 1)
 	{
-		echo "hello $customer_id";
+		echo "hello $fname";
     		$success = true;
+		
 	}
         }
 
