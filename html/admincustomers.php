@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signup.css">
     <title>Document</title>
     <style>
         body{
@@ -38,6 +37,8 @@ ul {
     </style>
 </head>
 <body>
+
+ 
     <ul>
        
         <li><a class="signup" href="signup.php">signup</a></li>
@@ -55,26 +56,29 @@ ul {
 	<li><a class ="removeorders" href="removeorders.php">admin</a></li>
 
     </ul>
+    
+	<?php
+		global $count;
+		$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
+        	require_once('connection.php');
 
-<?php
-	$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
-        require_once('connection.php');
-
-
-	if (isset($_POST['btnCustomer']))
-	{
-		
-		//$sql = "SELECT * FROM customers";
-		//$result = $conn->query($sql);
-		$query = mysqli_query($conn, "SELECT * FROM customers WHERE 1");
-	if (mysqli_num_rows($query) == 1)
-	{
-		echo "hello $fname";
-    		$success = true;
-		
-	}
-        }
-	
-?>   
-</body>
-</html>
+		$sql = "SELECT customer_id, fname, lanme, contact_id FROM customers";
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+			echo "<table style='border: solid 1px black;'>";
+			  echo "<table><tr><th>CustomerID</th><th>First</th><th>Last</th><th>ContactID</th>";
+  			// output data of each row
+  			while($row = $result->fetch_assoc()) {
+    				echo "<tr><td>".$row["customer_id"]."</td><td>".$row["fname"]."</td><td>".$row["lanme"]."</td><td>".$row["contact_id"]."</td></tr>";
+  			}
+  			echo "</table>";
+			} 
+			else {
+  			echo "0 results";
+			}
+			
+			
+		$conn->close();
+	?>
+    </body>
+    </html>

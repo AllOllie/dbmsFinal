@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signup.css">
     <title>Document</title>
     <style>
         body{
@@ -38,6 +37,8 @@ ul {
     </style>
 </head>
 <body>
+
+ 
     <ul>
        
         <li><a class="signup" href="signup.php">signup</a></li>
@@ -55,26 +56,31 @@ ul {
 	<li><a class ="removeorders" href="removeorders.php">admin</a></li>
 
     </ul>
+    
+	<?php
+		global $count;
+		$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
+        	require_once('connection.php');
 
-<?php
-	$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
-        require_once('connection.php');
-
-
-	if (isset($_POST['btnCustomer']))
-	{
+		$sql = "SELECT ISBN, title, price, reviews, publish_date, supplier_id FROM books";
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+			echo "<table style='border: solid 1px black;'>";
+			  echo "<table><tr><th>ISBN</th><th>Title</th><th>price</th><th>reviews</th><th>publish_date</th><th>supplier_id</th>";
+  			// output data of each row
+  			while($row = $result->fetch_assoc()) {
+    				echo "<tr><td>".$row["ISBN"]."</td><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["reviews"]."</td><td>".$row["publish_date"]."</td><td>".$row["supplier_id"]."</td></tr>";
+  			}
+  			echo "</table>";
+			} 
+			else {
+  			echo "0 results";
+			}
+			
 		
-		//$sql = "SELECT * FROM customers";
-		//$result = $conn->query($sql);
-		$query = mysqli_query($conn, "SELECT * FROM customers WHERE 1");
-	if (mysqli_num_rows($query) == 1)
-	{
-		echo "hello $fname";
-    		$success = true;
-		
-	}
-        }
 	
-?>   
-</body>
-</html>
+			
+		$conn->close();
+	?>
+    </body>
+    </html>
