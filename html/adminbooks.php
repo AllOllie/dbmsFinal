@@ -74,7 +74,7 @@ ul {
   			echo "</table>";
 			} 
 			else {
-  			echo "0 results";
+                echo "there are no files in the table";
 			}
 			
 		

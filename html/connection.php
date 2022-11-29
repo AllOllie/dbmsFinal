@@ -1,8 +1,7 @@
 <?php
     class bookstore
     {  
-        
-        function OpenCon() 
+        static function OpenCon() 
          { 
             $dbhost = "localhost"; 
             $dbuser = "root"; 
@@ -16,13 +15,6 @@
             $conn -> close(); 
         } 
 
-
-     //   CONNECT TO"localhost" as 
-
-
-       // public static function connect()
-       // {
-      //      $con= new PDO('mysql:localhost=host; dbname=bookstore','root','Pancho34');
-      //  }
     }
+?>
 ?>

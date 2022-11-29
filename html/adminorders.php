@@ -45,15 +45,15 @@ ul {
         <li><a class ="home" href="home.php">home</a></li>
         <li><a class="customer login" href="login.php">customer login</a></li>
         <li><a class ="admin" href="admin.php">admin</a></li>
-	    <li><a class="viewCustomer" href="admincustomers.php">viewCustomers</a></li>
+	<li><a class="viewCustomer" href="admincustomers.php">viewCustomers</a></li>
         <li><a class ="viewBooks" href="adminbooks.php">viewbooks</a></li>
         <li><a class="viewOrders" href="adminorders.php">viewOrders</a></li>
         <li><a class ="addCustomers" href="admin.php">addcustomers</a></li>
-	    <li><a class ="addBooks" href="admin.php">addbooks</a></li>
-	    <li><a class ="addOrders" href="admin.php">addOrders</a></li>
-	    <li><a class ="removeCustomers" href="removecustomers.php">admin</a></li>
-	    <li><a class ="removebooks" href="removebooks.php">admin</a></li>
-	    <li><a class ="removeorders" href="removeorders.php">admin</a></li>
+	<li><a class ="addBooks" href="admin.php">addbooks</a></li>
+	<li><a class ="addOrders" href="admin.php">addOrders</a></li>
+	<li><a class ="removeCustomers" href="removecustomers.php">admin</a></li>
+	<li><a class ="removebooks" href="removebooks.php">admin</a></li>
+	<li><a class ="removeorders" href="removeorders.php">admin</a></li>
 
     </ul>
     
@@ -74,7 +74,7 @@ ul {
   			echo "</table>";
 			} 
 			else {
-  			echo "0 results";
+                echo "there are no files in the table";
 			}
 			
 		
