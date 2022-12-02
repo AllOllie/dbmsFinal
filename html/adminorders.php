@@ -48,12 +48,24 @@ ul {
 	<li><a class="viewCustomer" href="admincustomers.php">viewCustomers</a></li>
         <li><a class ="viewBooks" href="adminbooks.php">viewbooks</a></li>
         <li><a class="viewOrders" href="adminorders.php">viewOrders</a></li>
-        <li><a class ="addCustomers" href="admin.php">addcustomers</a></li>
-	<li><a class ="addBooks" href="admin.php">addbooks</a></li>
-	<li><a class ="addOrders" href="admin.php">addOrders</a></li>
-	<li><a class ="removeCustomers" href="removecustomers.php">admin</a></li>
-	<li><a class ="removebooks" href="removebooks.php">admin</a></li>
-	<li><a class ="removeorders" href="removeorders.php">admin</a></li>
+        <li><a class ="addCustomers" href="addcustomers.php">addcustomers</a></li>
+	<li><a class ="addBooks" href="addbooks.php">addbooks</a></li>
+	<li><a class ="addOrders" href="addorders.php">addOrders</a></li>
+	<li><a class ="removeCustomers" href="removecustomers.php">remove customer</a></li>
+	<li><a class ="removebooks" href="removebooks.php">remove book</a></li>
+	<li><a class ="removeorders" href="removeorders.php">remove order</a></li>
+	<li><a class ="viewbook" href="adminbooks.php">viewbooks</a></li>
+	<li><a class ="viewauthor" href="adminauthors.php">viewauthors</a></li>
+	<li><a class ="viewsupplier" href="adminsuppliers.php">view supplier</a></li>
+	<li><a class ="removesuppliers" href="removesuppliers.php">remove supplier</a></li>
+	<li><a class ="removeauthors" href="removeauthors.php">remove author</a></li>
+	<li><a class ="addsupplier" href="addsuppliers.php">add supplier</a></li>
+	<li><a class ="addauthors" href="addauthors.php">add author</a></li>
+
+
+	<li><a class ="updateauthors" href="updateauthors.php">update author</a></li>
+	<li><a class ="updatebooks" href="updatebooks.php">update books</a></li>
+	<li><a class ="updatecustomers" href="updatecustomers.php">update customer</a></li>
 
     </ul>
     
@@ -74,7 +86,7 @@ ul {
   			echo "</table>";
 			} 
 			else {
-                echo "there are no files in the table";
+  			echo "there are no files in the table";
 			}
 			
 		

@@ -4,41 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
     <title>Document</title>
-    <style>
-        body{
-    background: gray;
-
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover {
-    background-color: black;
-  }
-
-    </style>
 </head>
 <body>
-
- 
     <ul>
        
         <li><a class="signup" href="signup.php">signup</a></li>
@@ -66,30 +35,55 @@ ul {
 	<li><a class ="updateauthors" href="updateauthors.php">update author</a></li>
 	<li><a class ="updatebooks" href="updatebooks.php">update books</a></li>
 	<li><a class ="updatecustomers" href="updatecustomers.php">update customer</a></li>
-
     </ul>
-    
-	<?php
-		global $count;
-		$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
-        	require_once('connection.php');
+    <div class="form">
+        <div class = "title">
+            <p>signup</p>
+        </div>
+    </div>
+    <div class="form">
+        <form action="" method="post">
+            <p>add supplier</p>
+	        <input type="text" name="supplier_id"placeholder="supplier_id">
+            	<input type="text" name="sname" placeholder="supplier name">
 
-		$sql = "SELECT ISBN, title, price, reviews, publish_date, supplier_id FROM books";
-		$result = $conn->query($sql);
-		if ($result->num_rows > 0) {
-			echo "<table style='border: solid 1px black;'>";
-			  echo "<table><tr><th>ISBN</th><th>Title</th><th>price</th><th>reviews</th><th>publish_date</th><th>supplier_id</th>";
-  			// output data of each row
-  			while($row = $result->fetch_assoc()) {
-    				echo "<tr><td>".$row["ISBN"]."</td><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["reviews"]."</td><td>".$row["publish_date"]."</td><td>".$row["supplier_id"]."</td></tr>";
-  			}
-  			echo "</table>";
-			} 
-			else {
-  			echo "0 results";
-			}
+	        <input type="text" name="fname"placeholder="first">
+            	<input type="text" name="lname" placeholder="last">
+	        <input type="text" name="cell_number"placeholder="cell_number">
+            	<input type="text" name="work_number" placeholder="work_number">
+	        <input type="text" name="email"placeholder="email">
 
-		$conn->close();
-	?>
-    </body>
-    </html>
+            	<input type="submit" value="add_button" name = "add_button">
+        </form>
+    </div>
+<?php
+	$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
+        require_once('connection.php');
+	if (isset($_POST['add_button']))
+	{ 	
+		$supplier_id = $_POST['supplier_id'];
+         	$sname = $_POST['sname'];
+
+		$fname = $_POST['fname'];
+         	$lname = $_POST['lname'];
+		$cell_number = $_POST['cell_number'];
+         	$work_number = $_POST['work_number'];
+		$email = $_POST['email'];
+
+            	
+
+
+	mysqli_query($conn, "INSERT INTO supplier VALUES ('{$supplier_id}', '{$sname}')");
+	//mysqli_query($conn, "INSERT INTO supply_rep VALUES ('{$fname}', '{$lname}', '{$cell_number}', '{$work_number}', '{$email}', '{$supplier_id}')");
+
+	//if ($conn->query($sql) === TRUE) {
+  	//echo "Record added successfully";
+	//} else {
+  	//echo "Error adding record: " . $conn->error;
+	//}
+	
+	}
+	
+?>   
+</body>
+</html>

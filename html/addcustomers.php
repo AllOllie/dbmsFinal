@@ -17,13 +17,24 @@
 	<li><a class="viewCustomer" href="admincustomers.php">viewCustomers</a></li>
         <li><a class ="viewBooks" href="adminbooks.php">viewbooks</a></li>
         <li><a class="viewOrders" href="adminorders.php">viewOrders</a></li>
-        <li><a class ="addCustomers" href="admin.php">addcustomers</a></li>
+        <li><a class ="addCustomers" href="addcustomers.php">addcustomers</a></li>
 	<li><a class ="addBooks" href="addbooks.php">addbooks</a></li>
 	<li><a class ="addOrders" href="addorders.php">addOrders</a></li>
-	<li><a class ="removeCustomers" href="removecustomers.php">admin</a></li>
-	<li><a class ="removebooks" href="removebooks.php">admin</a></li>
-	<li><a class ="removeorders" href="removeorders.php">admin</a></li>
+	<li><a class ="removeCustomers" href="removecustomers.php">remove customer</a></li>
+	<li><a class ="removebooks" href="removebooks.php">remove book</a></li>
+	<li><a class ="removeorders" href="removeorders.php">remove order</a></li>
+	<li><a class ="viewbook" href="adminbooks.php">viewbooks</a></li>
+	<li><a class ="viewauthor" href="adminauthors.php">viewauthors</a></li>
+	<li><a class ="viewsupplier" href="adminsuppliers.php">view supplier</a></li>
+	<li><a class ="removesuppliers" href="removesuppliers.php">remove supplier</a></li>
+	<li><a class ="removeauthors" href="removeauthors.php">remove author</a></li>
+	<li><a class ="addsupplier" href="addsuppliers.php">add supplier</a></li>
+	<li><a class ="addauthors" href="addauthors.php">add author</a></li>
 
+
+	<li><a class ="updateauthors" href="updateauthors.php">update author</a></li>
+	<li><a class ="updatebooks" href="updatebooks.php">update books</a></li>
+	<li><a class ="updatecustomers" href="updatecustomers.php">update customer</a></li>
     </ul>
     <div class="form">
         <div class = "title">
@@ -32,7 +43,7 @@
     </div>
     <div class="form">
         <form action="" method="post">
-            <p>sign up</p>
+            <p>add customer</p>
 	        <input type="text" name="customer_id"placeholder="customer_id">
             	<input type="text" name="fname" placeholder="FirstName">
             	<input type="text" name="lanme"placeholder="LastName">

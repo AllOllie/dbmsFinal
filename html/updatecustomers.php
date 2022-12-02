@@ -43,16 +43,16 @@
     </div>
     <div class="form">
         <form action="" method="post">
-            <p>add orders</p>
-	        <input type="text" name="order_id"placeholder="order_id">
-            	<input type="text" name="order_date" placeholder="order_date">
-            	<input type="text" name="order_value"placeholder="order_value">
-            	<input type="text" name="customer_id"placeholder="customer_id">
-            	<input type="text" name="publish_date"placeholder="publish_date">
-            	<input type="text" name="supplier_id"placeholder="supplier_id">
+            <p>update customer</p>
+	        <input type="text" name="customer_id"placeholder="customer_id">
+            	<input type="text" name="fname" placeholder="FirstName">
+            	<input type="text" name="lanme"placeholder="LastName">
+            	<input type="text" name="contact_id"placeholder="contact_id">
+	    	<input type="text" name="email"placeholder="email">
+            	<input type="text" name="phone" placeholder="phone">
+		<input type="text" name="address" placeholder="address">
 
-            	<input type="submit" value="add_button" name = "add_button">
-
+            <input type="submit" value="add_button" name = "add_button">
         </form>
     </div>
 <?php
@@ -60,24 +60,31 @@
         require_once('connection.php');
 	if (isset($_POST['add_button']))
 	{ 	
-		$order_id = $_POST['order_id'];
-         	$order_date = $_POST['order_date'];
-            	$order_value = $_POST['order_value'];
-	 	$customer_id = $_POST['customer_id'];
-         	//$publish_date = $_POST['publish_date'];
-         	//$supplier_id = $_POST['supplier_id'];
+		$fname = $_POST['fname'];
+         	$lanme = $_POST['lanme'];
+            	$customer_id = $_POST['customer_id'];
+	 	$contact_id = $_POST['contact_id'];
+         	$email = $_POST['email'];
+         	$address = $_POST['address'];
+	 	$phone = $_POST['phone'];
 
-
-	mysqli_query($conn, "INSERT INTO orders VALUES ('{$order_id}', '{$order_date}', '{$order_value}','{$customer_id}')");
-	//mysqli_query($conn, "INSERT INTO bookcategory VALUES ('{$category_code}', '{$category_description}', '{$ISBN}')");
+	//$sql = mysqli_query($conn, "UPDATE `customers` SET `lanme`='{$lanme}',`contact_id`='{$contact_id}' WHERE `customer_id`='{$customer_id}' && `fname`='{$fname}';");
+	mysqli_query($conn, "UPDATE `customers` SET `fname`='{$fname}',`lanme`='{$lanme}',`contact_id`='{$contact_id}' WHERE `customer_id`='{$customer_id}';");
+	mysqli_query($conn, "UPDATE `customer_address` SET `address`='{$address}',`contact_id`='{$contact_id}' WHERE `customer_id`='{$customer_id}';");
+	mysqli_query($conn, "UPDATE `customer_contact_details` SET `contact_id`='{$contact_id}' WHERE `customer_id`='{$customer_id}';");
+	mysqli_query($conn, "UPDATE `customer_email` SET `email`='{$email}',`contact_id`='{$contact_id}' WHERE `customer_id`='{$customer_id}';");
+	mysqli_query($conn, "UPDATE `customer_number` SET `phone`='{$phone}',`contact_id`='{$contact_id}' WHERE `customer_id`='{$customer_id}';");
+	
+	
 	//if ($conn->query($sql) === TRUE) {
-  	//echo "Record added successfully";
+  	//echo "Record update successfully";
 	//} else {
-  	//echo "Error adding record: " . $conn->error;
+  	//echo "Error update record: " . $conn->error;
 	//}
-	}
-	//$conn->close();
-
+	//}
+	$conn->close();
+}
+	
 ?>   
 </body>
 </html>

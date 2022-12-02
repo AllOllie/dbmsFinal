@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@
         <li><a class="signup" href="signup.php">signup</a></li>
         <li><a class ="home" href="home.php">home</a></li>
         <li><a class="customer login" href="login.php">customer login</a></li>
-        <li><a class ="admin" href="admin.php">admin</a></li>
+	<li><a class ="admin" href="adminhome.php">admin</a></li>
 
     </ul>
     <div class="form">
@@ -45,6 +44,7 @@
 	$query = mysqli_query($conn, "SELECT * FROM customers WHERE customer_id='{$customer_id}' && fname ='{$fname}'");
 	if (mysqli_num_rows($query) == 1)
 	{
+		header('Location: customerhome.php');
 		echo "hello $fname";
     		$success = true;
 		

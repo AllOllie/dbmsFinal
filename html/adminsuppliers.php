@@ -74,21 +74,21 @@ ul {
 		$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
         	require_once('connection.php');
 
-		$sql = "SELECT ISBN, title, price, reviews, publish_date, supplier_id FROM books";
+		$sql = "SELECT supplier_id, sname FROM supplier";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
-			echo "<table style='border: solid 1px black;'>";
-			  echo "<table><tr><th>ISBN</th><th>Title</th><th>price</th><th>reviews</th><th>publish_date</th><th>supplier_id</th>";
-  			// output data of each row
+			  echo "<table><tr><th>supplier_id</th><th>sname</th>";
+
   			while($row = $result->fetch_assoc()) {
-    				echo "<tr><td>".$row["ISBN"]."</td><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["reviews"]."</td><td>".$row["publish_date"]."</td><td>".$row["supplier_id"]."</td></tr>";
+    				echo "<tr><td>".$row["supplier_id"]."</td><td>".$row["sname"]."</td></tr>";
   			}
   			echo "</table>";
 			} 
 			else {
-  			echo "0 results";
+   			echo "there are no files in the table";
 			}
-
+			
+			
 		$conn->close();
 	?>
     </body>

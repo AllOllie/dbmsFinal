@@ -41,10 +41,13 @@ ul {
  
     <ul>
        
-        <li><a class="signup" href="signup.php">signup</a></li>
         <li><a class ="home" href="home.php">home</a></li>
-        <li><a class="customer login" href="login.php">customer login</a></li>
-        <li><a class ="admin" href="adminhome.php">admin</a></li>
+	<li><a class ="updatecustomers" href="customerUpdate.php">update customer</a></li>
+        <li><a class="signup" href="signup.php">create Account</a></li>
+
+        <li><a class ="home" href="changeOrder.php">change order</a></li>
+	<li><a class ="updatecustomers" href="placeOrder.php">place order</a></li>
+        <li><a class="signup" href="viewOrder.php">view order</a></li>
 
     </ul>
     
@@ -53,24 +56,20 @@ ul {
 		$conn = mysqli_connect("localhost","root","Pancho34","bookstore");
         	require_once('connection.php');
 
-		$sql = "SELECT title, price, reviews FROM books";
+		$sql = "SELECT order_id, order_date, order_value, customer_id FROM orders";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
-			
-			  echo "<table><tr><th>sub</th><th>Add</th><th>Title</th><th>Price</th><th>Reviews</th>";
-  			
+			echo "<table style='border: solid 1px black;'>";
+			  echo "<table><tr><th>order_id</th><th>order_date</th><th>order_value</th><th>customer_id</th>";
+  			// output data of each row
   			while($row = $result->fetch_assoc()) {
-    				echo "<tr><td><input type='submit'name ='subtract' value='-'></input></td><td><input type='submit'name ='add' value='+'></input></td><td>".$row["title"]."</td><td>".$row["price"]."</td><td>".$row["reviews"]."</td></tr>";
+    				echo "<tr><td>".$row["order_id"]."</td><td>".$row["order_date"]."</td><td>".$row["order_value"]."</td><td>".$row["customer_id"]."</td></tr>";
   			}
   			echo "</table>";
 			} 
 			else {
-  			echo "0 results";
+  			echo "there are no files in the table";
 			}
-			
-			
+				
 		$conn->close();
 	?>
-    </body>
-    </html>
-

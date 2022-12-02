@@ -35,6 +35,7 @@
 	<li><a class ="updateauthors" href="updateauthors.php">update author</a></li>
 	<li><a class ="updatebooks" href="updatebooks.php">update books</a></li>
 	<li><a class ="updatecustomers" href="updatecustomers.php">update customer</a></li>
+
     </ul>
     <div class="form">
         <div class = "title">
@@ -43,15 +44,20 @@
     </div>
     <div class="form">
         <form action="" method="post">
-            <p>add orders</p>
-	        <input type="text" name="order_id"placeholder="order_id">
-            	<input type="text" name="order_date" placeholder="order_date">
-            	<input type="text" name="order_value"placeholder="order_value">
-            	<input type="text" name="customer_id"placeholder="customer_id">
-            	<input type="text" name="publish_date"placeholder="publish_date">
-            	<input type="text" name="supplier_id"placeholder="supplier_id">
+            <p>update Authors</p>
+	        <input type="text" name="author_id"placeholder="author_id">
+            	<input type="text" name="birthdate" placeholder="birthdate">
+            	<input type="text" name="gender"placeholder="gender">
+            	<input type="text" name="firstn"placeholder="firstn">
+	    	<input type="text" name="lname"placeholder="lname">
+            	
+		<input type="text" name="contact_id" placeholder="contact_id">
+		<input type="text" name="address" placeholder="address">
 
-            	<input type="submit" value="add_button" name = "add_button">
+		<input type="text" name="email" placeholder="email">
+		<input type="text" name="phone" placeholder="phone">
+
+		<input type="submit" value="add_button" name = "add_button">
 
         </form>
     </div>
@@ -60,24 +66,24 @@
         require_once('connection.php');
 	if (isset($_POST['add_button']))
 	{ 	
-		$order_id = $_POST['order_id'];
-         	$order_date = $_POST['order_date'];
-            	$order_value = $_POST['order_value'];
-	 	$customer_id = $_POST['customer_id'];
-         	//$publish_date = $_POST['publish_date'];
-         	//$supplier_id = $_POST['supplier_id'];
+		$author_id = $_POST['author_id'];
+         	$birthdate = $_POST['birthdate'];
+            	$gender = $_POST['gender'];
+	 	$firstn = $_POST['firstn'];
+         	$lname = $_POST['lname'];
+         	$contact_id = $_POST['contact_id'];
+	 	$address = $_POST['address'];
 
+         	$email = $_POST['email'];
+	 	$phone = $_POST['phone'];
 
-	mysqli_query($conn, "INSERT INTO orders VALUES ('{$order_id}', '{$order_date}', '{$order_value}','{$customer_id}')");
-	//mysqli_query($conn, "INSERT INTO bookcategory VALUES ('{$category_code}', '{$category_description}', '{$ISBN}')");
-	//if ($conn->query($sql) === TRUE) {
-  	//echo "Record added successfully";
-	//} else {
-  	//echo "Error adding record: " . $conn->error;
-	//}
+	mysqli_query($conn, "UPDATE `author` SET `birthdate`='{$birthdate}',`gender`='{$gender}',`firstn`='{$firstn}',`lname`='{$lname}' WHERE `author_id`='{$author_id}';");
+	mysqli_query($conn, "UPDATE `author_address` SET `address`='{$address}',`contact_id`='{$contact_id}' WHERE `author_id`='{$author_id}';");
+	mysqli_query($conn, "UPDATE `author_contact_details` SET `contact_id`='{$contact_id}' WHERE `author_id`='{$author_id}';");
+	mysqli_query($conn, "UPDATE `author_email` SET `email`='{$email}',`contact_id`='{$contact_id}' WHERE `author_id`='{$author_id}';");
+	mysqli_query($conn, "UPDATE `author_number` SET `phone`='{$phone}',`contact_id`='{$contact_id}' WHERE `author_id`='{$author_id}';");
 	}
 	//$conn->close();
-
 ?>   
 </body>
-</html>
+</html> 
