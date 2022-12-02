@@ -1,0 +1,133 @@
+insert into author 
+VALUES (1, '1991-04-27', 'male', 'Ray', 'Cole');
+
+insert into author
+VALUES (2, '1968-02-18', 'male', 'Terry', 'Goodkind');
+
+insert into author
+VALUES (3, '1951-03-01', 'female','Sarah', 'Bryant');
+
+insert into supplier
+values (1001, 'Booksmart');
+
+insert into supplier
+values (1002, 'Barnes and Noble');
+
+insert into supplier
+values (1003, 'BooksFast');
+
+insert into books
+values (1234567, 'Wizards First Rule', 7.99, 'good book', '1991-04-01', 1001);
+
+insert into books 
+values (1234568,'As Old as time', 9.99, 'alright book', '2018-02-11', 1002);
+
+insert into bookCategory
+values ( 111, 'Fantasy', 1234567);
+
+insert into bookCategory
+values (222, 'Fairy Tale', 1234568);
+
+insert into warehouse
+values (2, 1234567, 3);
+
+insert into warehouse
+values (3, 1234568, 1);
+
+
+insert into supply_rep
+values ('Sandra', 'Gutman', '936-555-1234', '936-444-1234', 'sandra.gutman@gmail.com', 1001);
+
+insert into supply_rep
+values ('Jordan', 'Goldmeier', '936-555-4567', '936-444-4567', 'jordan.goldmeier@gmail.com', 1002);
+
+insert into supply_rep
+values ('Ryan', 'Sala', '936-555-9874', '936-444-9874', 'ryan.sala@gmail.com', 1003);
+
+insert into customers
+values (001, 'Billy', 'Smith', 123);
+
+insert into customers
+values (002, 'Helen', 'Sneed', 456);
+
+insert into customers
+values (003, 'Jack', 'Cole', 789);
+
+insert into customer_contact_details
+values (123, 001);
+
+insert into customer_contact_details
+values (456, 002);
+
+insert into customer_contact_details
+values (789, 003);
+
+insert into orders
+values (1110, '2022-04-02', 27.99, 001);
+
+insert into orders
+values (1111, '2021-05-21', 45.99, 002);
+
+insert into orders
+values (1112, '2020-08-11', 123.45,003);
+
+insert into customer_email
+values ('billy.smith@books.com', 123, 1);
+
+insert into customer_email
+values ('Helen.sneed@books.com', 456, 2);
+
+insert into customer_email
+values ('jack.cole@books.com', 789, 3);
+
+insert into customer_address
+values ("somewhere there", 123, 1);
+
+insert into customer_address
+values ("here or there", 456, 2);
+
+insert into customer_address
+values ("someplace", 789, 3);
+
+insert into author_contact_details
+values (331, 1);
+
+insert into author_contact_details
+values (332, 2);
+
+insert into author_contact_details
+values (333, 3);
+
+insert into author_number
+values ('936-888-1111', 331, 1);
+
+insert into author_number
+values ('936-888-2222', 332, 2);
+
+insert into author_number
+values ('936-888-3333', 333, 3);
+
+
+insert into author_address
+values ('Not here', 331, 1);
+
+insert into author_address
+values ('somewhere else', 332, 2);
+
+insert into author_address
+values ('elsewhere', 333, 3);
+
+insert into author_email
+values ('ray.cole@books.com', 331, 1);
+
+insert into author_email
+values ('terry.goodkind@books.com', 332, 2);
+
+insert into author_email
+values ('sarah.bryant@books.com', 333, 3);
+
+insert into order_items
+values( 711, 12.99, 1110, 1234567);
+
+insert into order_items
+values( 711, 45.99, 1111, 1234568);
